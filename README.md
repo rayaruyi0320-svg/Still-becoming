@@ -16,20 +16,4 @@ Still Becoming gives attention to creative work that is often hidden because it 
 
 “You don’t have to finish this now. But you don’t have to lose it either.”
 
-## Collected Materials
-
-These ten materials are the starting collection for the project. They are organized by media type in the `assets/` folder.
-
-| # | Material | Format |
-| --- | --- | --- |
-| 1 | [Unfinished app wireframe](assets/html/unfinished-app-wireframe.html) | HTML |
-| 2 | [Unfinished UI design](assets/images/unfinished-ui.png) | Image |
-| 3 | [Unfinished photo log](assets/images/unfinished-plog.jpg) | Image |
-| 4 | [Unfinished portfolio design](assets/images/unfinished-portfolio.png) | Image |
-| 5 | [Unfinished poster](assets/images/unfinished-poster.png) | Image |
-| 6 | [Unfinished piano track](assets/audio/unfinished-piano-track.m4a) | Audio |
-| 7 | [Unfinished cover excerpt](assets/video/unfinished-cover-part.mov) | Video |
-| 8 | [Unfinished cover 2](assets/video/unfinished-cover2.mov) | Video |
-| 9 | [Unfinished vlog](assets/video/unfinished-vlog.mov) | Video |
-| 10 | [Unfinished project document](assets/documents/unfinished-project.docx) | Document |
 
