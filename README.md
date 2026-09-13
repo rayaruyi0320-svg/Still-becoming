@@ -33,6 +33,3 @@ These ten materials are the starting collection for the project. They are organi
 | 9 | [Unfinished vlog](assets/video/unfinished-vlog.mov) | Video |
 | 10 | [Unfinished project document](assets/documents/unfinished-project.docx) | Document |
 
-## Project Status
-
-Part 1 — Materials: the initial collection and concept for *Undervalued Value*. The website will be developed with HTML and CSS as the project progresses.
