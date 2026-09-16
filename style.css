@@ -1,0 +1,128 @@
+body {
+    margin: 0;
+    padding: 40px;
+    font-family: Arial, sans-serif;
+}
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+
+h1 {
+    text-align: center;
+    font-size: 50px;
+}
+
+
+.project-about {
+    width: 22%;
+}
+
+
+.my-work {
+    width: 22%;
+}
+
+
+.fragment-layout {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-top: 60px;
+}
+
+
+.metadata {
+    width: 20%;
+    padding: 20px;
+
+    background-color: lightgray;
+}
+
+
+.fragment {
+    width: 45%;
+    text-align: center;
+}
+
+
+.fragment img {
+    max-width: 100%;
+}
+
+.fragment video {
+    width: 100%;
+    max-width: 600px;
+}
+
+
+.fragment-about {
+    width: 20%;
+    padding: 20px;
+
+    background-color: lightgray;
+}
+
+
+.actions {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.button-row {
+    display: grid;
+    grid-template-columns: 140px 140px;
+    justify-content: center;
+    align-items: start;
+    column-gap: 80px;
+}
+
+.button-row > button,
+.visitor-note summary {
+    width: 140px;
+    height: 60px;
+
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid black;
+    border-radius: 30px;
+
+    background-color: white;
+
+    cursor: pointer;
+}
+
+.visitor-note {
+    text-align: center;
+}
+
+.visitor-note summary {
+    list-style: none;
+}
+
+.visitor-note summary::-webkit-details-marker {
+    display: none;
+}
+
+.note-area {
+    width: 500px;
+    margin-top: 30px;
+
+    margin-left: calc(-250px + 70px);
+
+    text-align: center;
+}
+
+.note-area textarea {
+    width: 100%;
+    box-sizing: border-box;
+}
