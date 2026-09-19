@@ -4,6 +4,7 @@
 
 <head>
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Still Becoming</title>
@@ -17,29 +18,45 @@
     <header>
 
         <div class="project-about">
+
+            <p class="small-note">// about this archive</p>
+
             <h2>About Still Becoming</h2>
 
             <p>
-                Still Becoming is an archive for unfinished creative work.
-                It gives unfinished things a place to be seen without requiring
-                them to become final.
+                A place for creative work that stopped before it was done.
+                It can stay here anyway.
             </p>
+
         </div>
 
 
-        <h1>Still Becoming</h1>
+        <div class="site-title">
+
+            <h1>Still Becoming</h1>
+
+            <p class="title-note">
+                things left unfinished, still worth seeing
+            </p>
+
+        </div>
 
 
         <div class="my-work">
+
+            <p class="small-note">// maybe yours, someday</p>
+
             <h2>My unfinished work</h2>
 
             <p>
-                A future space where visitors can contribute their own
-                unfinished fragments.
+                A future space where visitors can leave their own unfinished
+                fragments here.
             </p>
+
         </div>
 
     </header>
+
 
 
     <main>
@@ -49,92 +66,162 @@
 
             <div class="metadata">
 
+                <p class="annotation">// file notes</p>
+
                 <h2>Metadata</h2>
-            
-                <p><strong>Title:</strong> Unfinished Vlog</p>
-            
-                <p><strong>Type:</strong> Video</p>
-            
-                <p><strong>Status:</strong> Paused</p>
-            
-                <p><strong>Created:</strong> 2026</p>
-            
+
+                <p>
+                    <span class="meta-label">TITLE</span><br>
+                    Unfinished Vlog
+                </p>
+
+                <p>
+                    <span class="meta-label">TYPE</span><br>
+                    Video
+                </p>
+
+                <p class="status-line">
+                    <span class="status-dot"></span>
+
+                    <span>
+                        <span class="meta-label">STATUS</span><br>
+                        paused
+                    </span>
+                </p>
+
+                <p class="slightly-offset">
+                    <span class="meta-label">CREATED</span><br>
+                    2026
+                </p>
+
+                <p>
+                    <span class="meta-label">LAST TOUCHED</span><br>
+                    some time ago...
+                </p>
+
             </div>
+
 
 
             <div class="fragment">
 
-                <video controls>
-            
-                    <source
-                        src="assets/unfinished-vlog.mp4"
-                        type="video/mp4"
-                    >
-            
-                    Your browser does not support the video tag.
-            
-                </video>
-            
+                <span class="tape"></span>
+
+                <div class="draft-mark draft-mark-one">
+                    draft_01
+                </div>
+
+                <div class="fragment-frame">
+
+                    <video controls>
+
+                        <source
+                            src="assets/video/unfinished-vlog.mp4"
+                            type="video/mp4"
+                        >
+
+                        Your browser does not support the video tag.
+
+                    </video>
+
+                </div>
+
+
+                <p class="fragment-caption">
+                    still becoming...
+                </p>
+
             </div>
+
 
 
             <div class="fragment-about">
 
+                <p class="annotation">// margin notes</p>
+
                 <h2>About this fragment</h2>
-            
-                <h3>What I still like about it</h3>
-            
+
+                <h3>what I still like about it...</h3>
+
                 <p>
                     I still like some of the footage and the moments
                     that were captured, even though I never finished editing it.
                 </p>
-            
-                <h3>Where it might go</h3>
-            
+
+
+                <h3>where it might go...</h3>
+
                 <p>
                     I might return to it when I find a structure or
                     rhythm that feels right.
                 </p>
-            
+
+
+                <p class="unfinished-thought">
+                    maybe it doesn't need an ending yet.
+                </p>
+
             </div>
 
 
         </section>
+
 
 
         <section class="actions">
 
             <div class="button-row">
-        
-                <button>Show another</button>
-        
+
+                <button class="draft-button">
+                    resurface another →
+                </button>
+
+
                 <details class="visitor-note">
-        
-                    <summary>Leave a note</summary>
-        
+
+                    <summary>
+                        leave a note
+                    </summary>
+
+
                     <div class="note-area">
-        
-                        <p>
+
+                        <p class="note-prompt">
                             What do you see in this unfinished work?
                         </p>
-        
+
+
                         <textarea
                             rows="5"
                             cols="40"
-                            placeholder="Leave encouragement, feedback, a question, or an idea..."
+                            placeholder="leave a thought, question, encouragement, or possibility..."
                         ></textarea>
-        
+
+
                         <br>
-        
-                        <button>Leave this note</button>
-        
+
+
+                        <button class="leave-note-button">
+                            leave it here
+                        </button>
+
                     </div>
-        
+
                 </details>
-        
+
             </div>
-        
+
         </section>
+
+
+
+        <footer>
+
+            <p>
+                this page is still becoming too...
+            </p>
+
+        </footer>
 
 
     </main>

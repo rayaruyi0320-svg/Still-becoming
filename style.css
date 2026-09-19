@@ -1,128 +1,724 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+
+/* ------------------------------
+   COLOR PALETTE
+
+   deep ink blue:  #183554
+   dusty blue:     #7199B3
+   faded rust:     #B85A40
+   warm cream:     #EFE3D2
+   soft taupe:     #B8A89A
+-------------------------------- */
+
+
 body {
     margin: 0;
-    padding: 40px;
+    padding: 45px;
+
+    color: #183554;
+
     font-family: Arial, sans-serif;
+
+    background-color: #EFE3D2;
+
+    background-image:
+
+        linear-gradient(
+            rgba(113, 153, 179, 0.09) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(113, 153, 179, 0.09) 1px,
+            transparent 1px
+        ),
+
+        url("assets/paper-texture.jpg");
+
+    background-size:
+        32px 32px,
+        32px 32px,
+        cover;
+
+    background-blend-mode:
+        multiply,
+        multiply,
+        soft-light;
+
+    min-height: 100vh;
 }
+
+
+/* ------------------------------
+   HEADER
+-------------------------------- */
 
 
 header {
     display: flex;
+
     justify-content: space-between;
+
     align-items: flex-start;
-}
 
-
-h1 {
-    text-align: center;
-    font-size: 50px;
+    margin-bottom: 30px;
 }
 
 
 .project-about {
-    width: 22%;
+    width: 23%;
+
+    margin-top: 25px;
+
+    transform: rotate(-0.5deg);
 }
 
 
 .my-work {
-    width: 22%;
+    width: 21%;
+
+    margin-top: 55px;
+
+    transform: rotate(0.7deg);
 }
+
+
+.project-about h2,
+.my-work h2 {
+    font-family: "Caveat", cursive;
+
+    font-size: 30px;
+
+    font-weight: 500;
+
+    margin-bottom: 8px;
+}
+
+
+.project-about p,
+.my-work p {
+    line-height: 1.7;
+
+    font-size: 14px;
+}
+
+
+.site-title {
+    text-align: center;
+
+    width: 45%;
+}
+
+
+h1 {
+    margin: 0;
+
+    font-family: "Caveat", cursive;
+
+    font-size: 74px;
+
+    font-weight: 500;
+
+    line-height: 1;
+}
+
+
+.title-note {
+    margin-top: 10px;
+
+    font-family: "IBM Plex Mono", monospace;
+
+    font-size: 11px;
+
+    letter-spacing: 1px;
+
+    color: #7199B3;
+}
+
+
+.small-note {
+    font-family: "IBM Plex Mono", monospace;
+
+    font-size: 10px !important;
+
+    color: #B85A40;
+
+    letter-spacing: 1px;
+}
+
+
+/* ------------------------------
+   MAIN LAYOUT
+-------------------------------- */
 
 
 .fragment-layout {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
 
-    margin-top: 60px;
+    justify-content: space-between;
+
+    align-items: flex-start;
+
+    gap: 35px;
+
+    margin-top: 0;
 }
+
+
+/* ------------------------------
+   METADATA
+-------------------------------- */
 
 
 .metadata {
-    width: 20%;
-    padding: 20px;
+    width: 18%;
 
-    background-color: lightgray;
+    padding: 22px 18px;
+
+    font-family: "IBM Plex Mono", monospace;
+
+    font-size: 12px;
+
+    line-height: 1.6;
+
+    background-color: rgba(239, 227, 210, 0.62);
+
+    border-left: 1px dashed #7199B3;
+
+    transform: rotate(-1deg);
+
+    box-shadow:
+        5px 7px 0 rgba(184, 168, 154, 0.18);
 }
+
+
+.metadata h2 {
+    font-family: "Caveat", cursive;
+
+    font-size: 31px;
+
+    font-weight: 500;
+
+    margin-top: 0;
+}
+
+
+.metadata p {
+    margin-top: 24px;
+
+    margin-bottom: 24px;
+}
+
+
+.meta-label {
+    font-size: 9px;
+
+    letter-spacing: 1.5px;
+
+    color: #7199B3;
+}
+
+
+.annotation {
+    font-family: "Caveat", cursive;
+
+    font-size: 21px;
+
+    color: #B85A40;
+
+    margin-bottom: 4px;
+}
+
+
+.status-line {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+
+.status-dot {
+    width: 7px;
+
+    height: 7px;
+
+    border-radius: 50%;
+
+    background-color: #7199B3;
+
+    display: inline-block;
+}
+
+
+.slightly-offset {
+    margin-left: 9px;
+}
+
+
+/* ------------------------------
+   FRAGMENT
+-------------------------------- */
 
 
 .fragment {
-    width: 45%;
+    width: 48%;
+
+    position: relative;
+
     text-align: center;
+
+    transform: rotate(-0.7deg);
+
+    padding: 25px 20px 18px 20px;
 }
 
 
+/* pale sketch-paper panel behind the fragment */
+
+.fragment::before {
+    content: "";
+
+    position: absolute;
+
+    top: 8px;
+
+    left: 2%;
+
+    width: 95%;
+
+    height: 93%;
+
+    border-top: 1px dashed #7199B3;
+
+    border-left: 1px dashed #7199B3;
+
+    border-bottom: 1px dashed rgba(113, 153, 179, 0.35);
+
+    transform: rotate(1.1deg);
+
+    pointer-events: none;
+
+    z-index: -1;
+}
+
+
+/* second imperfect draft frame */
+
+.fragment::after {
+    content: "";
+
+    position: absolute;
+
+    top: 18px;
+
+    left: 5%;
+
+    width: 91%;
+
+    height: 87%;
+
+    border-right: 1px solid rgba(184, 90, 64, 0.45);
+
+    border-bottom: 1px solid rgba(184, 90, 64, 0.35);
+
+    transform: rotate(-0.6deg);
+
+    pointer-events: none;
+
+    z-index: -1;
+}
+
+
+.fragment-frame {
+    overflow: hidden;
+
+    border-radius: 9px 2px 11px 4px;
+
+    box-shadow:
+        7px 8px 0 rgba(184, 168, 154, 0.24);
+}
+
+
+/* fragment begins slightly hesitant / unclear */
+
+.fragment video,
 .fragment img {
-    max-width: 100%;
+    width: 102%;
+
+    max-width: 620px;
+
+    display: block;
+
+    margin-left: -1%;
+
+    opacity: 0.63;
+
+    filter:
+        blur(1.1px)
+        grayscale(12%);
+
+    transform: scale(1.025);
+
+    transition:
+        opacity 1.4s ease,
+        filter 1.4s ease,
+        transform 1.4s ease;
 }
 
-.fragment video {
-    width: 100%;
-    max-width: 600px;
+
+/* viewer approaches → fragment becomes present */
+
+.fragment:hover video,
+.fragment:hover img {
+    opacity: 1;
+
+    filter:
+        blur(0)
+        grayscale(0);
+
+    transform: scale(1);
 }
+
+
+.fragment-caption {
+    margin-top: 16px;
+
+    font-family: "Caveat", cursive;
+
+    font-size: 25px;
+
+    color: #B85A40;
+
+    opacity: 0;
+
+    transform: translateY(-4px);
+
+    transition:
+        opacity 1.2s ease,
+        transform 1.2s ease;
+}
+
+
+.fragment:hover .fragment-caption {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* ------------------------------
+   TAPE
+-------------------------------- */
+
+
+.tape {
+    position: absolute;
+
+    width: 100px;
+
+    height: 26px;
+
+    top: 8px;
+
+    left: 44%;
+
+    background-color: rgba(184, 168, 154, 0.47);
+
+    transform: rotate(-4deg);
+
+    z-index: 3;
+}
+
+
+/* ------------------------------
+   EDITOR MARKS
+-------------------------------- */
+
+
+.draft-mark {
+    position: absolute;
+
+    font-family: "IBM Plex Mono", monospace;
+
+    font-size: 9px;
+
+    letter-spacing: 1px;
+
+    color: #7199B3;
+}
+
+
+.draft-mark-one {
+    top: -5px;
+
+    right: 6%;
+
+    transform: rotate(3deg);
+}
+
+
+/* ------------------------------
+   ABOUT THIS FRAGMENT
+-------------------------------- */
 
 
 .fragment-about {
-    width: 20%;
-    padding: 20px;
+    width: 21%;
 
-    background-color: lightgray;
+    padding: 18px;
+
+    margin-top: 65px;
+
+    transform: rotate(0.8deg);
+
+    font-size: 13px;
+
+    line-height: 1.7;
 }
+
+
+.fragment-about h2 {
+    font-family: "Caveat", cursive;
+
+    font-size: 31px;
+
+    font-weight: 500;
+
+    margin-top: 0;
+}
+
+
+.fragment-about h3 {
+    font-family: "Caveat", cursive;
+
+    font-size: 23px;
+
+    font-weight: 500;
+
+    color: #7199B3;
+
+    margin-top: 28px;
+
+    margin-bottom: 5px;
+}
+
+
+.unfinished-thought {
+    margin-top: 35px;
+
+    font-family: "Caveat", cursive;
+
+    font-size: 22px;
+
+    color: #B85A40;
+
+    transform: rotate(-2deg);
+}
+
+
+/* ------------------------------
+   ACTIONS
+-------------------------------- */
 
 
 .actions {
-    margin-top: 40px;
+    margin-top: 70px;
+
     text-align: center;
 }
 
+
 .button-row {
     display: grid;
-    grid-template-columns: 140px 140px;
+
+    grid-template-columns: 175px 175px;
+
     justify-content: center;
+
     align-items: start;
-    column-gap: 80px;
+
+    column-gap: 70px;
 }
 
-.button-row > button,
+
+.draft-button,
 .visitor-note summary {
-    width: 140px;
-    height: 60px;
+    width: 175px;
+
+    min-height: 52px;
 
     box-sizing: border-box;
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
-    border: 1px solid black;
-    border-radius: 30px;
+    border: 1px dashed #7199B3;
 
-    background-color: white;
+    border-radius: 3px 9px 4px 7px;
+
+    background-color: rgba(239, 227, 210, 0.7);
+
+    color: #183554;
+
+    font-family: "IBM Plex Mono", monospace;
+
+    font-size: 11px;
 
     cursor: pointer;
+
+    transition:
+        background-color 0.6s ease,
+        transform 0.6s ease,
+        color 0.6s ease;
 }
+
+
+.draft-button:hover,
+.visitor-note summary:hover {
+    background-color: rgba(184, 168, 154, 0.35);
+
+    color: #B85A40;
+
+    transform: rotate(-1deg);
+}
+
 
 .visitor-note {
     text-align: center;
 }
 
+
 .visitor-note summary {
     list-style: none;
 }
+
 
 .visitor-note summary::-webkit-details-marker {
     display: none;
 }
 
+
+/* ------------------------------
+   LEAVE A NOTE
+-------------------------------- */
+
+
 .note-area {
     width: 500px;
-    margin-top: 30px;
 
-    margin-left: calc(-250px + 70px);
+    margin-top: 35px;
+
+    margin-left: calc(-250px + 87.5px);
+
+    padding: 25px;
+
+    box-sizing: border-box;
+
+    text-align: center;
+
+    background-color: rgba(239, 227, 210, 0.9);
+
+    border: 1px dashed #7199B3;
+
+    border-radius: 7px 2px 9px 4px;
+
+    box-shadow:
+        6px 7px 0 rgba(184, 168, 154, 0.18);
+
+    transform: rotate(0.4deg);
+}
+
+
+.note-prompt {
+    font-family: "Caveat", cursive;
+
+    font-size: 25px;
+
+    color: #183554;
+}
+
+
+.note-area textarea {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 15px;
+
+    background-color: rgba(255, 255, 255, 0.18);
+
+    color: #183554;
+
+    border: 1px dashed #7199B3;
+
+    border-radius: 2px;
+
+    font-family: "Caveat", cursive;
+
+    font-size: 20px;
+
+    resize: vertical;
+}
+
+
+.note-area textarea:focus {
+    outline: 1px solid #B85A40;
+}
+
+
+.note-area textarea::placeholder {
+    color: rgba(24, 53, 84, 0.52);
+}
+
+
+.leave-note-button {
+    margin-top: 18px;
+
+    padding: 10px 18px;
+
+    border: none;
+
+    border-bottom: 1px solid #B85A40;
+
+    background-color: transparent;
+
+    color: #B85A40;
+
+    font-family: "IBM Plex Mono", monospace;
+
+    font-size: 10px;
+
+    cursor: pointer;
+}
+
+
+/* ------------------------------
+   FOOTER
+-------------------------------- */
+
+
+footer {
+    margin-top: 160px;
+
+    padding-bottom: 80px;
 
     text-align: center;
 }
 
-.note-area textarea {
-    width: 100%;
-    box-sizing: border-box;
+
+footer p {
+    font-family: "Caveat", cursive;
+
+    font-size: 25px;
+
+    color: #7199B3;
+
+    transform: rotate(-1deg);
 }
