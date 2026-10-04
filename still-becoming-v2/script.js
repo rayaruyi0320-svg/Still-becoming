@@ -12,16 +12,6 @@
       captions:'', description:''
     },
     {
-      id:'cover', type:'video', title:'One breath before the second verse',
-      file:'cover-take-03.mp4', src:'assets/video/unfinished-cover-part.mp4',
-      date:'2025-05-02', stoppedAt:'0:41 / before the second verse', status:'ONE TAKE · UNFINISHED',
-      reason:'The second verse was out of my range.', todo:'try a lower key', thought:'let the wobble stay',
-      annotationTitle:'Before I tried to fix it',
-      annotation:'The first breath before the first line. It sounds like an attempt, and I like that.',
-      possibility:'A lower key might open the rest of the song. This take can still stay here.',
-      captions:'', description:''
-    },
-    {
       id:'piano', type:'audio', title:'Four bars that feel like a question',
       file:'piano-idea-003.m4a', src:'assets/audio/unfinished-piano-track.m4a',
       date:'2025-08-21', stoppedAt:'0:34 / bar 9 is missing', status:'MELODY STUDY · TAKE 03',
