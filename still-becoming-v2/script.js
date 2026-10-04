@@ -206,9 +206,53 @@ const documentParagraphs = ["Conducting the Underground Symphony", "Concept Stat
     await $('paperFrame').decode();
     $('unfold').classList.add('paper-ready');
   });
+  // Intro sound is trimmed during playback; the original MP3 remains unchanged.
+  const introSound = $('unfoldSound');
+  const INTRO_SOUND = { duration: 6800, fadeOut: 1600, fadeIn: 100, volume: 0.65 };
+  let soundFrame = 0, soundStopTimer = 0, soundRun = 0;
+  function stopIntroSound() {
+    soundRun++;
+    cancelAnimationFrame(soundFrame);
+    clearTimeout(soundStopTimer);
+    introSound.pause();
+    introSound.volume = 0;
+  }
+  function startIntroSound() {
+    stopIntroSound();
+    // The shortened reduced-motion intro should not leave a longer sound behind.
+    if (reduced.matches || document.hidden) return;
+    const run = soundRun;
+    const started = performance.now();
+    introSound.currentTime = 0;
+    introSound.volume = 0;
+    // Start inside the click handler so browsers permit user-initiated playback.
+    introSound.play().then(() => {
+      if (run !== soundRun || $('intro').hidden) introSound.pause();
+    }).catch(() => { if (run === soundRun) stopIntroSound(); });
+    function envelope(now) {
+      if (run !== soundRun) return;
+      const elapsed = now - started;
+      if (elapsed >= INTRO_SOUND.duration || document.hidden || $('intro').hidden) {
+        stopIntroSound(); return;
+      }
+      const fadeIn = Math.min(1, elapsed / INTRO_SOUND.fadeIn);
+      const remaining = Math.min(1, (INTRO_SOUND.duration - elapsed) / INTRO_SOUND.fadeOut);
+      // Smoothstep reaches silence gently, without an abrupt edge at the cutoff.
+      const fadeOut = remaining * remaining * (3 - 2 * remaining);
+      introSound.volume = INTRO_SOUND.volume * fadeIn * fadeOut;
+      soundFrame = requestAnimationFrame(envelope);
+    }
+    soundFrame = requestAnimationFrame(envelope);
+    // A wall-clock cutoff also applies if rendering is delayed or backgrounded.
+    soundStopTimer = setTimeout(() => {
+      if (run === soundRun) stopIntroSound();
+    }, INTRO_SOUND.duration);
+  }
+  reduced.addEventListener('change', event => { if (event.matches) stopIntroSound(); });
   const delay = ms => new Promise(resolve => setTimeout(resolve,ms));
   async function enter() {
     if(unfolding)return; unfolding=true;
+    startIntroSound();
     $('unfold').disabled=true; $('intro').classList.add('unfolding');
     const sources=await Promise.all(frames);
     for(let i=1;i<sources.length;i++) {
@@ -222,6 +266,7 @@ const documentParagraphs = ["Conducting the Underground Symphony", "Concept Stat
     }
     await delay(reduced.matches ? 50 : 700);
     $('intro').classList.add('leaving'); await delay(reduced.matches ? 0 : 950);
+    stopIntroSound();
     $('intro').hidden=true; $('desktop').hidden=false; $('desktop').classList.add('desktop-enter');
     route(); $('app').focus({preventScroll:true});
     if(!storageOK) feedback('Browser storage is unavailable. Changes will last for this visit only.',true);
@@ -233,7 +278,7 @@ const documentParagraphs = ["Conducting the Underground Symphony", "Concept Stat
     let ticket=Math.random()*weights.reduce((a,b)=>a+b,0);
     return pool.find((f,i)=>(ticket-=weights[i])<0)||pool[pool.length-1];
   }
-  function stopMedia(){document.querySelectorAll('video,audio').forEach(m=>m.pause());}
+  function stopMedia(){stopIntroSound();document.querySelectorAll('video,audio').forEach(m=>m.pause());}
   function showFragment(f) {
     stopMedia(); current=f;
     history.replaceState(null,'',`#${f.id}`);
