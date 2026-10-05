@@ -1,72 +1,188 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#EFE3D2">
-  <meta name="description" content="Unfinished creative work, given space to be seen again.">
-  <title>Still Becoming</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="assets/paperball-sources.js" defer></script>
-  <script src="script.js" defer></script>
-</head>
-<body>
-  <a class="skip" href="#app">Skip to the fragment</a>
-  <section class="intro" id="intro" aria-label="Unfold Still Becoming">
-    <audio id="unfoldSound" src="assets/paperball_unfolding_sound.mp3" preload="auto" hidden></audio>
-    <p class="intro-whisper">Hey... There seems to be some...</p>
-    <button class="paperball" id="unfold" type="button" aria-label="Unfold the paper and enter Still Becoming">
-      <img id="paperFrame" src="assets/paperball1.png" alt="A crumpled piece of paper with Still Becoming written on it" width="600" height="400">
-      <img id="paperNext" alt="" aria-hidden="true" width="600" height="400">
-    </button>
-    <p class="intro-question">Unfinished Things?</p>
-  </section>
-  <div id="desktop" hidden>
-    <header class="header">
-      <div>
-        <h1 class="brand"><s>Unfinished</s> <s>Not Yet</s> <span>Still Becoming</span></h1>
-        <p class="invitation">You don't have to finish this now.<br>But you don't have to lose it either.<br>It’s still becoming...</p>
-      </div>
-      <button class="favorites-trigger" id="shelfBtn" type="button" aria-haspopup="dialog" aria-controls="shelf" aria-expanded="false">
-        <img src="assets/drawer1.png" data-cutout alt="" aria-hidden="true">
-        <span>My favorites <small id="shelfCount">0</small></span>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#EFE3D2" />
+    <meta
+      name="description"
+      content="Unfinished creative work, given space to be seen again."
+    />
+    <title>Still Becoming</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="assets/paperball-sources.js" defer></script>
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip" href="#app">Skip to the fragment</a>
+    <!-- 开场：点击纸团展开；键盘可用顶部跳过链接。 -->
+    <section class="intro" id="intro" aria-label="Unfold Still Becoming">
+      <audio
+        id="unfoldSound"
+        src="assets/paperball_unfolding_sound.mp3"
+        preload="auto"
+        hidden
+      ></audio>
+      <p class="intro-whisper">Hey... There seems to be some...</p>
+      <button
+        class="paperball"
+        id="unfold"
+        type="button"
+        aria-label="Unfold the paper and enter Still Becoming"
+        aria-describedby="unfoldHint"
+      >
+        <img
+          id="paperFrame"
+          src="assets/paperball1.png"
+          alt="A crumpled piece of paper with Still Becoming written on it"
+          width="600"
+          height="400"
+        />
+        <img
+          id="paperNext"
+          alt=""
+          aria-hidden="true"
+          width="600"
+          height="400"
+        />
       </button>
-    </header>
-    <main id="app" class="workspace" tabindex="-1">
-      <aside class="metadata" aria-labelledby="metadataTitle">
-        <span class="paperclip" aria-hidden="true"></span>
-        <h2 id="metadataTitle">Metadata</h2>
-        <dl id="meta"></dl>
-      </aside>
-      <section class="fragment" aria-label="Surfaced fragment">
-        <div class="fragment-mount" id="mount">
-          <div id="work" class="work"></div>
-          <div id="decorations" aria-hidden="true"></div>
+      <p id="unfoldHint" class="intro-hint">click to unfold</p>
+      <p class="intro-question">Unfinished Things?</p>
+    </section>
+    <div id="desktop" hidden>
+      <header class="header">
+        <div>
+          <h1 class="brand">
+            <s>Unfinished</s> <s>Not Yet</s> <span>Still Becoming</span>
+          </h1>
+          <p class="invitation">
+            You don't have to finish this now.<br />But you don't have to lose
+            it either.<br />It’s still becoming...
+          </p>
         </div>
-        <div class="actions">
-          <button id="backBtn" class="paper-action resurface" type="button">resurface another</button>
-          <button id="keepBtn" class="paper-action favorite" type="button" aria-pressed="false">add to favorite</button>
-        </div>
-      </section>
-      <aside class="thoughts" aria-labelledby="thoughtsTitle">
-        <div class="tools" role="group" aria-label="Pinned thought tools">
-          <button type="button" data-tool="text" aria-label="Type on a note" aria-pressed="true" title="Type on a note">T</button>
-          <button type="button" data-tool="draw" aria-label="Draw on a note" aria-pressed="false" title="Pencil"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M7 22 23 3l6 5-17 19-8 3z" fill="#cf9c45"/><path d="m7 22 5 5-8 3z" fill="#dfcaaa"/><path d="m4 30 2-6 3 4z" fill="#183554"/><path d="m23 3 3-2 5 4-2 3" fill="#B85A40"/><path d="m11 22 14-16" stroke="#73592e"/></svg></button>
-          <button type="button" data-tool="erase" aria-label="Erase drawing" aria-pressed="false" title="Eraser"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="m2 20 17-17 12 10-15 17H12z" fill="#B85A40"/><path d="m14 8 5-5 12 10-5 5z" fill="#7199B3"/><path d="m3 21 10 8h4" fill="none" stroke="#e7b09a" stroke-width="2"/></svg></button>
-          <button type="button" id="addNote" aria-label="Pin a new note" title="Pin a new note"><img src="assets/small red push pin.png" alt=""></button>
-        </div>
-        <h2 id="thoughtsTitle">Pinned Thoughts</h2>
-        <div id="notes" class="notes"></div>
-      </aside>
-    </main>
-  </div>
-  <p id="feedback" class="feedback" role="status" aria-live="polite"></p>
-  <p id="announcement" class="sr-only" role="status" aria-atomic="true"></p>
-  <noscript><p class="no-script">Please enable JavaScript to unfold the paper and explore the fragments.</p></noscript>
-  <dialog id="shelf" aria-labelledby="shelfTitle">
-    <button id="shelfClose" class="close" type="button" aria-label="Close my favorites">×</button>
-    <h2 id="shelfTitle">My favorites</h2>
-    <div id="shelfItems"></div>
-  </dialog>
-</body>
+        <button
+          class="favorites-trigger"
+          id="shelfBtn"
+          type="button"
+          aria-haspopup="dialog"
+          aria-controls="shelf"
+          aria-expanded="false"
+        >
+          <img src="assets/drawer1.png" data-cutout alt="" aria-hidden="true" />
+          <span>My favorites <small id="shelfCount">0</small></span>
+        </button>
+      </header>
+      <!-- 主界面：左侧 metadata / 中间 fragment / 右侧便签。 -->
+      <main id="app" class="workspace" tabindex="-1">
+        <aside class="metadata" aria-labelledby="metadataTitle">
+          <span class="paperclip" aria-hidden="true"></span>
+          <h2 id="metadataTitle">Metadata</h2>
+          <dl id="meta"></dl>
+        </aside>
+        <section class="fragment" aria-label="Surfaced fragment">
+          <div class="fragment-mount" id="mount">
+            <div id="work" class="work"></div>
+            <div id="decorations" aria-hidden="true"></div>
+          </div>
+          <div class="actions">
+            <button id="backBtn" class="paper-action resurface" type="button">
+              resurface another
+            </button>
+            <button
+              id="keepBtn"
+              class="paper-action favorite"
+              type="button"
+              aria-pressed="false"
+            >
+              add to favorites
+            </button>
+          </div>
+          <button
+            id="thoughtsJump"
+            class="thoughts-jump"
+            type="button"
+            aria-controls="notes"
+          >
+            Pinned Thoughts ↓
+          </button>
+        </section>
+        <aside class="thoughts" aria-labelledby="thoughtsTitle">
+          <div class="tools" role="group" aria-label="Pinned thought tools">
+            <button
+              type="button"
+              data-tool="text"
+              aria-label="Type on a note"
+              aria-pressed="true"
+              title="Type on a note"
+            >
+              T
+            </button>
+            <button
+              type="button"
+              data-tool="draw"
+              aria-label="Draw on a note"
+              aria-pressed="false"
+              title="Pencil"
+            >
+              <svg viewBox="0 0 32 32" aria-hidden="true">
+                <path d="M7 22 23 3l6 5-17 19-8 3z" fill="#cf9c45" />
+                <path d="m7 22 5 5-8 3z" fill="#dfcaaa" />
+                <path d="m4 30 2-6 3 4z" fill="#183554" />
+                <path d="m23 3 3-2 5 4-2 3" fill="#B85A40" />
+                <path d="m11 22 14-16" stroke="#73592e" />
+              </svg>
+            </button>
+            <button
+              type="button"
+              data-tool="erase"
+              aria-label="Erase drawing"
+              aria-pressed="false"
+              title="Eraser"
+            >
+              <svg viewBox="0 0 32 32" aria-hidden="true">
+                <path d="m2 20 17-17 12 10-15 17H12z" fill="#B85A40" />
+                <path d="m14 8 5-5 12 10-5 5z" fill="#7199B3" />
+                <path
+                  d="m3 21 10 8h4"
+                  fill="none"
+                  stroke="#e7b09a"
+                  stroke-width="2"
+                />
+              </svg>
+            </button>
+            <button
+              type="button"
+              id="addNote"
+              aria-label="Pin a new note"
+              title="Pin a new note"
+            >
+              <img src="assets/small red push pin.png" alt="" />
+            </button>
+          </div>
+          <h2 id="thoughtsTitle" tabindex="-1">Pinned Thoughts</h2>
+          <div id="notes" class="notes"></div>
+        </aside>
+      </main>
+    </div>
+    <p id="feedback" class="feedback" role="status" aria-live="polite"></p>
+    <p id="announcement" class="sr-only" role="status" aria-atomic="true"></p>
+    <noscript
+      ><p class="no-script">
+        Please enable JavaScript to unfold the paper and explore the fragments.
+      </p></noscript
+    >
+    <!-- 收藏弹窗：浏览器原生 dialog 支持 Esc 关闭和焦点限制。 -->
+    <dialog id="shelf" aria-labelledby="shelfTitle">
+      <button
+        id="shelfClose"
+        class="close"
+        type="button"
+        aria-label="Close my favorites"
+      >
+        ×
+      </button>
+      <h2 id="shelfTitle">My favorites</h2>
+      <div id="shelfItems"></div>
+    </dialog>
+  </body>
 </html>
